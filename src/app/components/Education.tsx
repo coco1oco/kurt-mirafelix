@@ -6,7 +6,7 @@ const education = {
   institution: 'Cavite State University',
   degree: 'Bachelor of Science in Computer Science',
   period: 'Expected 2027',
-  gwa: '1.14',
+  gwa: '1.31',
   gwaNote: '(1.00 = highest)',
   honors: 'President\'s Lister (Freshman-Present)'
 };
@@ -115,7 +115,7 @@ export function Education() {
                       <span className="text-4xl font-bold text-gray-900 dark:text-gray-100">{education.gwa}</span>
                       <span className="text-sm text-gray-400 dark:text-gray-500">{education.gwaNote}</span>
                     </div>
-                    <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">GWA</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-500 uppercase tracking-wider">GPA</p>
                   </div>
 
                   <div className="w-px h-12 bg-gray-200" />
@@ -161,7 +161,7 @@ export function Education() {
                       </h4>
                       {cert.inProgress && (
                         <span className="shrink-0 flex items-center gap-1.5 px-2 py-0.5 border border-gray-300 rounded-full">
-                          <span className="w-1.5 h-1.5 rounded-full bg-gray-400 animate-pulse" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
                           <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider">In Progress</span>
                         </span>
                       )}

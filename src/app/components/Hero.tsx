@@ -206,7 +206,7 @@ export function Hero() {
             <span>•</span>
             <span>President's Lister</span>
             <span>•</span>
-            <span>GWA 1.14</span>
+            <span>GPA 1.31</span>
           </motion.div>
         </motion.div>
 

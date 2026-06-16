@@ -12,8 +12,8 @@ const projects = [
     impact: 'Optimized messaging architecture: 40s → 200ms load time',
     tags: ['React', 'TypeScript', 'Tailwind CSS', 'Supabase', 'Firebase', 'Cloudinary'],
     period: 'Dec 2025 – Jan 2026',
-    link: 'https://pawpal.vercel.app',
-    github: 'https://github.com/kurtmirafelix/pawpal'
+    link: 'https://pawpal-taupe.vercel.app/welcome',
+    github: 'https://github.com/coco1oco/CSync'
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const projects = [
     tags: ['React 18', 'Vite', 'UI/UX Design'],
     period: 'Nov 2025',
     link: null,
-    github: 'https://github.com/kurtmirafelix/hype'
+    github: 'https://github.com/coco1oco/Hype'
   },
   {
     id: 3,
