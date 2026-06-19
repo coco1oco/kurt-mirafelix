@@ -5,6 +5,7 @@ import { TechStack } from './components/TechStack';
 import { Education } from './components/Education';
 import { Experience } from './components/Experience';
 import { About } from './components/About';
+import { Contact } from './components/Contact';
 import { FloatingNav } from './components/FloatingNav';
 import { CustomCursor } from './components/CustomCursor';
 import { GrainTexture } from './components/GrainTexture';
@@ -18,6 +19,7 @@ import { StatusIndicator } from './components/StatusIndicator';
 import { SkipToContent } from './components/SkipToContent';
 import { resumeUrl, RESUME_FILENAME } from './lib/resume';
 import { useDarkMode } from './hooks/useDarkMode';
+import { SectionErrorBoundary } from './components/SectionErrorBoundary';
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -37,12 +39,13 @@ export default function App() {
             <FloatingNav isDark={isDark} onToggleDark={toggle} />
             <StatusIndicator />
             <main id="main-content">
-              <Hero />
-              <About />
-              <ProjectShowcase />
-              <Experience />
-              <TechStack />
-              <Education />
+              <SectionErrorBoundary><Hero /></SectionErrorBoundary>
+              <SectionErrorBoundary><About /></SectionErrorBoundary>
+              <SectionErrorBoundary><ProjectShowcase /></SectionErrorBoundary>
+              <SectionErrorBoundary><Experience /></SectionErrorBoundary>
+              <SectionErrorBoundary><TechStack /></SectionErrorBoundary>
+              <SectionErrorBoundary><Education /></SectionErrorBoundary>
+              <SectionErrorBoundary><Contact /></SectionErrorBoundary>
             </main>
 
             {/* Footer */}
@@ -57,8 +60,8 @@ export default function App() {
                     <p className="text-gray-600 dark:text-gray-400">Open to opportunities and collaboration</p>
                   </div>
                   <MagneticButton
-                    href="mailto:kmirafelix@gmail.com"
-                    className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors"
+                    href="#contact"
+                    className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300"
                   >
                     Get in Touch
                   </MagneticButton>

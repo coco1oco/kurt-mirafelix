@@ -1,47 +1,64 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { Zap, Trophy, LineChart } from 'lucide-react';
+import { BookOpen, MonitorSmartphone, Lightbulb, Network, Shield, Cloud, GraduationCap } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const experiences = [
   {
     id: 1,
-    title: 'PawPal — Lead Developer',
-    company: 'Youth For Animals (PAWS Philippines)',
-    period: 'Dec 2025 – Jan 2026',
-    description: 'Led end-to-end delivery of an installable PWA for a pet community, covering the community feed, pet profiles, medical records, and real-time group chat.',
-    icon: Zap,
-    achievements: [
-      'Optimized messaging architecture: 40s → 200ms load time',
-      'Built real-time chat and media uploads with Supabase, Firebase & Cloudinary',
-      'Shipped an installable, offline-capable PWA',
-    ],
+    title: 'The Foundation',
+    company: 'B.S. in Computer Science • Cavite State University',
+    period: '2023',
+    description: 'Began formal studies with a focus on core computer science principles, data structures, and software engineering.',
+    icon: BookOpen,
   },
   {
     id: 2,
-    title: 'Hype — Hackathon Build',
-    company: 'C(Old) (ST)art Hackathon',
-    period: 'Nov 2025',
-    description: 'Built an event manager and second-hand ticketing marketplace with live auction mechanics under strict hackathon time constraints.',
-    icon: Trophy,
-    achievements: [
-      'Designed and built the marketplace UI in React 18 + Vite',
-      'Led the final product pitch and Q&A session',
-      'Delivered a working prototype within the time limit',
-    ],
+    title: 'Client Delivery & Defense',
+    company: 'Lead Developer • PawPal (PAWS Philippines)',
+    period: 'Early 2026',
+    description: 'Successfully delivered and defended a full-stack progressive web application to an academic panel. Managed end-to-end development, focusing on community architecture and digital records management.',
+    icon: MonitorSmartphone,
   },
   {
     id: 3,
-    title: 'Real Estate Price Prediction',
-    company: 'Academic ML Research Project',
-    period: 'May 2026',
-    description: 'Trained a multiple linear regression model to predict real estate sale amounts from assessed property values and categorical property types.',
-    icon: LineChart,
-    achievements: [
-      'Feature engineering with one-hot encoding in Python & Pandas',
-      'Evaluated with MSE and R² metrics using scikit-learn',
-      'Visualized findings with Matplotlib & Seaborn',
-    ],
+    title: 'Strategy & Pitching',
+    company: 'Product Developer • Hype',
+    period: 'Early 2026',
+    description: "Competed in a pitch competition with a dynamic marketplace application. Spearheaded the platform's pivot to focus on second-hand ticket sellers, implementing custom auction mechanics and driving the migration to React Native.",
+    icon: Lightbulb,
+  },
+  {
+    id: 4,
+    title: 'Algorithmic Research',
+    company: 'Thesis Researcher • Spatial Data & Optimization',
+    period: 'Spring 2026',
+    description: 'Formalized a thesis proposal tackling dynamic relief goods routing for local LGUs. Designed backend logic utilizing Multi-Objective Particle Swarm Optimization and Voronoi network analysis to solve complex, real-world logistical challenges.',
+    icon: Network,
+  },
+  {
+    id: 5,
+    title: 'Security & Systems',
+    company: 'Cybersecurity & Infrastructure',
+    period: 'Mid 2026',
+    description: 'Expanded focus into system-level operations, including hands-on hardware thermal management and system optimization. Currently actively pursuing networking and cyber threat management certifications through Cisco Networking Academy.',
+    icon: Shield,
+  },
+  {
+    id: 6,
+    title: 'Cloud Fundamentals',
+    company: 'AZ-900 Certification Preparation',
+    period: 'Present',
+    description: 'Currently studying for the Microsoft Azure Fundamentals (AZ-900) certification, focusing on cloud concepts, core Azure services, and cloud security.',
+    icon: Cloud,
+  },
+  {
+    id: 7,
+    title: 'The Future',
+    company: 'Expected Graduation • Cavite State University',
+    period: '2027',
+    description: 'Available for full-time software engineering and technical consulting roles.',
+    icon: GraduationCap,
   },
 ];
 
@@ -91,18 +108,6 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed relative z-10">
             {exp.description}
           </p>
-
-          <ul className="space-y-3 pt-2 relative z-10">
-            {exp.achievements.map((achievement) => (
-              <li
-                key={achievement}
-                className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-400"
-              >
-                <span className="w-1.5 h-1.5 bg-gray-900 dark:bg-gray-500 rounded-full mt-1.5 flex-shrink-0" />
-                {achievement}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </motion.div>

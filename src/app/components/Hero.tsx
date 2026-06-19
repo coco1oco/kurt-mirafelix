@@ -28,7 +28,7 @@ export function Hero() {
   const revealY = useMotionValue(-1000);
   const smoothRevealX = useSpring(revealX, { stiffness: 250, damping: 25 });
   const smoothRevealY = useSpring(revealY, { stiffness: 250, damping: 25 });
-  
+
   // Track hovering state with motion value for smooth opacity transitions
   const isHovering = useMotionValue(0); // 0 or 1
   const smoothHovering = useSpring(isHovering, { stiffness: 250, damping: 25 });
@@ -65,7 +65,7 @@ export function Hero() {
 
   // Use motion templates to directly generate complex string styles using motion values
   const maskImage = useMotionTemplate`radial-gradient(circle ${REVEAL_RADIUS}px at ${revealX}px ${revealY}px, black 45%, transparent 75%)`;
-  
+
   return (
     <section
       ref={sectionRef}
@@ -190,7 +190,7 @@ export function Hero() {
             <span className="flex items-center gap-2">View Projects</span>
           </MagneticButton>
           <MagneticButton
-            href="mailto:kmirafelix@gmail.com"
+            href="#contact"
             className="px-10 py-4 bg-white/90 text-gray-900 rounded-none font-medium border border-gray-900 hover:border-gray-900 transition-all hover:scale-105 backdrop-blur-sm"
           >
             Contact

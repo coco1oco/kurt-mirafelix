@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Home, Code, Briefcase, Layers, GraduationCap, FileDown, Moon, Sun } from 'lucide-react';
+import { Home, Code, Briefcase, Layers, GraduationCap, FileDown, Moon, Sun, Mail } from 'lucide-react';
 import { resumeUrl, RESUME_FILENAME } from '../lib/resume';
 
 const navItems = [
@@ -9,6 +9,7 @@ const navItems = [
   { name: 'Experience', href: '#experience', icon: Briefcase },
   { name: 'Skills', href: '#skills', icon: Layers },
   { name: 'Education', href: '#education', icon: GraduationCap },
+  { name: 'Contact', href: '#contact', icon: Mail },
 ];
 
 interface FloatingNavProps {
