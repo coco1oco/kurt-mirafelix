@@ -1,11 +1,32 @@
+import { createRoot } from "react-dom/client";
+import App from "./app/App.tsx";
+import "./styles/index.css";
+import { GlobalErrorBoundary } from "./app/components/GlobalErrorBoundary";
 
-  import { createRoot } from "react-dom/client";
-  import App from "./app/App.tsx";
-  import "./styles/index.css";
-  import { GlobalErrorBoundary } from "./app/components/GlobalErrorBoundary";
+const consoleArt = `
+██╗  ██╗██╗   ██╗██████╗ ████████╗
+██║ ██╔╝██║   ██║██╔══██╗╚══██╔══╝
+█████╔╝ ██║   ██║██████╔╝   ██║   
+██╔═██╗ ██║   ██║██╔══██╗   ██║   
+██║  ██╗╚██████╔╝██║  ██║   ██║   
+╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝   ╚═╝   
+                                  
+███╗   ███╗██╗ ██████╗██╗  ██╗ █████╗ ███████╗██╗     
+████╗ ████║██║██╔════╝██║  ██║██╔══██╗██╔════╝██║     
+██╔████╔██║██║██║     ███████║███████║█████╗  ██║     
+██║╚██╔╝██║██║██║     ██╔══██║██╔══██║██╔══╝  ██║     
+██║ ╚═╝ ██║██║╚██████╗██║  ██║██║  ██║███████╗███████╗
+╚═╝     ╚═╝╚═╝ ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝
+`;
 
-  createRoot(document.getElementById("root")!).render(
-    <GlobalErrorBoundary>
-      <App />
-    </GlobalErrorBoundary>
-  );
+console.log(
+  `%c${consoleArt}\n%cHey there! Thanks for stopping by to look under the hood.\nExplore the source at: https://github.com/coco1oco`,
+  'color: #ffffffff; font-weight: bold; font-family: monospace; text-shadow: 1px 1px 0px #000;',
+  'color: #6b7280; font-size: 14px;'
+);
+
+createRoot(document.getElementById("root")!).render(
+  <GlobalErrorBoundary>
+    <App />
+  </GlobalErrorBoundary>
+);

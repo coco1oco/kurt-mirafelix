@@ -122,7 +122,7 @@ export function About() {
 
             <div className="space-y-2">
               <div className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100">
-                <AnimatedCounter end={1} suffix=".14" duration={2.5} />
+                <AnimatedCounter end={1} suffix=".31" duration={2.5} />
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400 tracking-wide">GWA</div>
               <div className="text-xs text-gray-400 dark:text-gray-500">President's Lister</div>

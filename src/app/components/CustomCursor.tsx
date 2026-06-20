@@ -95,21 +95,7 @@ export function CustomCursor() {
         initial={{ opacity: 0 }}
         whileInView={{ opacity: isVisible ? 1 : 0 }}
       />
-      {cursorVariant === 'link' && (
-        <motion.div
-          className="fixed top-0 left-0 pointer-events-none z-[9999] hidden md:flex items-center justify-center text-xs font-medium text-gray-900"
-          style={{
-            x: cursorX,
-            y: cursorY,
-            translateX: '-50%',
-            translateY: '-50%',
-          }}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          →
-        </motion.div>
-      )}
+
     </>
   );
 }

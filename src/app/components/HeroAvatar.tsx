@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import avatar from '../../imports/1x1.png';
+import avatarShades from '../../imports/1x1_shades.png';
 
 export function HeroAvatar() {
   return (
@@ -9,12 +10,18 @@ export function HeroAvatar() {
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay: 1.2, ease: 'easeOut' }}
     >
-      <div className="relative">
+      <div className="relative cursor-pointer">
         <img
           src={avatar}
           alt=""
           role="presentation"
           className="w-14 h-14 rounded-full object-cover transition-all duration-500 border-2 border-gray-300 dark:border-gray-700 group-hover:border-gray-900 dark:group-hover:border-gray-300 shadow-sm"
+        />
+        <img
+          src={avatarShades}
+          alt=""
+          role="presentation"
+          className="absolute top-0 left-0 w-14 h-14 rounded-full object-cover transition-all duration-500 border-2 border-gray-300 dark:border-gray-700 group-hover:border-gray-900 dark:group-hover:border-gray-300 shadow-sm opacity-0 group-hover:opacity-100"
         />
         {/* Tooltip — slides in on group hover */}
         <div 

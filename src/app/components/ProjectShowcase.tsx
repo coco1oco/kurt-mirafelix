@@ -41,7 +41,7 @@ const projects = [
 
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   const ref = useRef<HTMLElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
   const reduceMotion = usePrefersReducedMotion();
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
@@ -69,7 +69,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0, rotateX, rotateY } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.6, delay: index * 0.15, rotateX: { duration: 0.3 }, rotateY: { duration: 0.3 } }}
+      transition={{ duration: 0.6, rotateX: { duration: 0.3 }, rotateY: { duration: 0.3 } }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-500 transition-all duration-500 p-6 sm:p-10 hover:shadow-2xl"
@@ -80,7 +80,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
         className="absolute top-0 left-0 w-full h-0.5 bg-gray-900 dark:bg-gray-400 origin-left"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: isInView ? 1 : 0 }}
-        transition={{ duration: 0.6, delay: 0.8 + index * 0.15 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
       />
 
       <div className="space-y-6">

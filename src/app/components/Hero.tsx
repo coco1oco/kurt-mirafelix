@@ -160,11 +160,11 @@ export function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
         >
-          <p className="text-xl sm:text-2xl text-gray-900 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed font-light bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-4 py-1 rounded-sm text-center">
+          <p className="text-xl sm:text-2xl text-gray-900 dark:text-gray-100 max-w-3xl mx-auto leading-relaxed font-light text-center">
             Fullstack developer with a growing focus on cloud infrastructure and cybersecurity
           </p>
           <motion.div
-            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-sm text-gray-700 dark:text-gray-300 bg-white/70 dark:bg-gray-900/70 backdrop-blur-sm px-4 py-1 rounded-sm"
+            className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-sm text-gray-700 dark:text-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}

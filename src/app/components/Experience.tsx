@@ -6,7 +6,7 @@ import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 const experiences = [
   {
     id: 1,
-    title: 'The Foundation',
+    title: 'Hello World!',
     company: 'B.S. in Computer Science • Cavite State University',
     period: '2023',
     description: 'Began formal studies with a focus on core computer science principles, data structures, and software engineering.',
@@ -15,7 +15,7 @@ const experiences = [
   {
     id: 2,
     title: 'Client Delivery & Defense',
-    company: 'Lead Developer • PawPal (PAWS Philippines)',
+    company: 'Lead Developer & Project Manager • PawPal (PAWS Philippines)',
     period: 'November 2025 - January 2026',
     description: 'Successfully delivered and defended a full-stack progressive web application to an academic panel. Managed end-to-end development, focusing on community architecture and digital records management.',
     icon: MonitorSmartphone,
@@ -72,7 +72,7 @@ const experiences = [
 
 function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
   const reduceMotion = usePrefersReducedMotion();
 
   const offscreenX = index % 2 === 0 ? -50 : 50;
@@ -82,7 +82,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
       ref={ref}
       initial={reduceMotion ? false : { opacity: 0, x: offscreenX }}
       animate={isInView || reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: offscreenX }}
-      transition={{ duration: 0.6, delay: reduceMotion ? 0 : index * 0.2 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
         }`}
     >
