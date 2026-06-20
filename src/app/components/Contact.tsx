@@ -4,9 +4,9 @@ import { Send, CheckCircle, AlertCircle, Mail, User, MessageSquare } from 'lucid
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 // ─── EmailJS config ──────────────────────────────────────────────────────────
-const EMAILJS_SERVICE_ID = 'service_a5azasm';
-const EMAILJS_TEMPLATE_ID = 'template_uvk425n';
-const EMAILJS_PUBLIC_KEY = '4X5IZ_5tdgbxu5HEN';
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || '';
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || '';
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '';
 // ─────────────────────────────────────────────────────────────────────────────
 
 type Status = 'idle' | 'sending' | 'success' | 'error' | 'rate_limited';
@@ -278,7 +278,7 @@ export function Contact() {
                 icon={User}
                 value={form.name}
                 onChange={set('name')}
-                placeholder="Kurt Michael Mirafelix"
+                placeholder="John Doe"
                 required
                 disabled={isDisabled}
                 maxLength={100}

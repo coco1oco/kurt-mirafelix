@@ -35,7 +35,6 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      smoothTouch: false,
     });
 
     lenisRef.current = lenis;
@@ -61,7 +60,7 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
           return;
         }
         try {
-          const element = document.querySelector(href);
+          const element = document.querySelector(href) as HTMLElement;
           if (element) {
             lenis.scrollTo(element, { offset: 0, duration: 1.5 });
           }

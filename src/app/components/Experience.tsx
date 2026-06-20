@@ -16,7 +16,7 @@ const experiences = [
     id: 2,
     title: 'Client Delivery & Defense',
     company: 'Lead Developer • PawPal (PAWS Philippines)',
-    period: 'Early 2026',
+    period: 'November 2025 - January 2026',
     description: 'Successfully delivered and defended a full-stack progressive web application to an academic panel. Managed end-to-end development, focusing on community architecture and digital records management.',
     icon: MonitorSmartphone,
   },
@@ -83,9 +83,8 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
       initial={reduceMotion ? false : { opacity: 0, x: offscreenX }}
       animate={isInView || reduceMotion ? { opacity: 1, x: 0 } : { opacity: 0, x: offscreenX }}
       transition={{ duration: 0.6, delay: reduceMotion ? 0 : index * 0.2 }}
-      className={`relative flex flex-col md:flex-row gap-8 ${
-        index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-      }`}
+      className={`relative flex flex-col md:flex-row gap-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+        }`}
     >
       {/* Timeline dot with icon */}
       <div className="absolute left-4 md:left-1/2 w-12 h-12 -ml-[24px] bg-white dark:bg-gray-950 border-2 border-gray-900 dark:border-gray-600 z-10 flex items-center justify-center">
