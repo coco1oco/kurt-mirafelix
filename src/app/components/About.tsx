@@ -96,7 +96,7 @@ export function About() {
 
             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
-                Currently maintaining a 1.14 GWA as President's Lister while expanding into cloud infrastructure
+                Currently maintaining a 1.31 GPA as President's Lister while expanding into cloud infrastructure
                 and cybersecurity. Studying for the Microsoft AZ-900 Azure Fundamentals certification and
                 actively growing in security concepts through Cisco's Networking Academy.
               </p>
