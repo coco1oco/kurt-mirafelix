@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { BookOpen, MonitorSmartphone, Lightbulb, Network, Shield, Cloud, GraduationCap } from 'lucide-react';
+import { BookOpen, MonitorSmartphone, Lightbulb, Network, Shield, Cloud, GraduationCap, Code } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const experiences = [
@@ -46,6 +46,14 @@ const experiences = [
   },
   {
     id: 6,
+    title: 'Portfolio Development',
+    company: 'Personal Branding & Engineering',
+    period: 'June 2026',
+    description: 'Architected and built a highly interactive, modern portfolio to showcase technical capabilities and professional milestones using React, Tailwind CSS, and Framer Motion.',
+    icon: Code,
+  },
+  {
+    id: 7,
     title: 'Cloud Fundamentals',
     company: 'AZ-900 Certification Preparation',
     period: 'Present',
@@ -53,7 +61,7 @@ const experiences = [
     icon: Cloud,
   },
   {
-    id: 7,
+    id: 8,
     title: 'The Future',
     company: 'Expected Graduation • Cavite State University',
     period: '2027',

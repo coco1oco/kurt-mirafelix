@@ -47,7 +47,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
   const [rotateY, setRotateY] = useState(0);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
-    if (reduceMotion || !ref.current) return;
+    if (reduceMotion || !ref.current || window.innerWidth < 768) return;
     const rect = ref.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -72,7 +72,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       transition={{ duration: 0.6, delay: index * 0.15, rotateX: { duration: 0.3 }, rotateY: { duration: 0.3 } }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-500 transition-all duration-500 p-10 hover:shadow-2xl"
+      className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-500 transition-all duration-500 p-6 sm:p-10 hover:shadow-2xl"
       style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
     >
       {/* Hover accent line */}
@@ -85,7 +85,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
       <div className="space-y-6">
         {/* Header */}
-        <div className="flex items-start justify-between gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4">
           <div className="space-y-2 flex-1">
             <div className="flex items-center gap-3">
               <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
