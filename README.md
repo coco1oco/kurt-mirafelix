@@ -2,6 +2,8 @@
 
 This repository contains the source code for my personal portfolio website, designed to showcase my projects, skills, and professional experience as a developer. The design emphasizes a clean, premium aesthetic with smooth animations and responsive layouts, originally inspired by a premium Figma design.
 
+This is my very first iteration of my portfolio website, if you do have any suggestions, please do let me know! I'm open to any feedback and suggestions. I'm a beginner when it comes to web development, but I'm eager to learn and improve. Thank you!
+
 ## Tech Stack
 
 The portfolio is built with modern web technologies, focusing on performance, accessibility, and maintainability:
