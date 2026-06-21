@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kurt-mirafelix.kmirafelix.workers.dev/sitemap.xml
+Sitemap: https://kurtmichaelmirafelix.dev/sitemap.xml
