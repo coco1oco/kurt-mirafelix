@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import avatar from '../../imports/1x1.png';
-import avatarShades from '../../imports/1x1_shades.png';
+import avatar from '../../assets/1x1.png';
+import avatarShades from '../../assets/1x1_shades.png';
 
 export function HeroAvatar() {
   return (

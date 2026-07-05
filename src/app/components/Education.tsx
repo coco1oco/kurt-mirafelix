@@ -54,7 +54,7 @@ export function Education() {
   const isInView = useInView(cardRef, { once: true, margin: "-100px" });
 
   return (
-    <section id="education" ref={ref} className="relative py-32 px-6 bg-white dark:bg-gray-950 overflow-hidden transition-colors duration-300">
+    <section id="education" ref={ref} className="relative py-32 px-6 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       {/* Geometric background */}
       <motion.div
         className="absolute bottom-20 right-20 w-[400px] h-[400px] border border-gray-100 rounded-full"
@@ -90,7 +90,7 @@ export function Education() {
             initial={{ opacity: 0, y: 30 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6 }}
-            className="relative bg-white dark:bg-gray-900 border-2 border-gray-900 dark:border-gray-700 p-10 hover:shadow-2xl transition-all duration-500 group"
+            className="relative bg-white dark:bg-black border-2 border-gray-900 dark:border-gray-700 p-10 hover:shadow-2xl transition-all duration-500 group"
           >
             {/* Accent corner */}
             <div className="absolute top-0 right-0 w-20 h-20 bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 0)' }} />
@@ -152,7 +152,7 @@ export function Education() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ scale: 1.02, y: -4 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-6 hover:border-gray-900 dark:hover:border-gray-500 hover:shadow-lg transition-all group"
+                  className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 p-6 hover:border-gray-900 dark:hover:border-gray-500 hover:shadow-lg transition-all group"
                 >
                   <div className="space-y-2">
                     <div className="flex items-start justify-between gap-2">
@@ -196,10 +196,10 @@ export function Education() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                   whileHover={{ x: 10 }}
-                  className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 p-8 hover:border-gray-900 dark:hover:border-gray-500 hover:shadow-lg transition-all group"
+                  className="bg-white dark:bg-black border border-gray-200 dark:border-gray-700 p-8 hover:border-gray-900 dark:hover:border-gray-500 hover:shadow-lg transition-all group"
                 >
                   <div className="flex items-start gap-6">
-                    <div className="p-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 group-hover:border-gray-900 dark:group-hover:border-gray-400 group-hover:bg-gray-900 dark:group-hover:bg-gray-200 transition-all">
+                    <div className="p-3 bg-gray-50 dark:bg-zinc-900 border border-gray-200 dark:border-gray-700 group-hover:border-gray-900 dark:group-hover:border-gray-400 group-hover:bg-gray-900 dark:group-hover:bg-gray-200 transition-all">
                       <Icon className="w-6 h-6 text-gray-900 group-hover:text-white transition-colors" />
                     </div>
                     <div className="flex-1 space-y-2">

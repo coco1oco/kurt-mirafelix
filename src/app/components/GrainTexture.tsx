@@ -11,9 +11,9 @@ export function GrainTexture() {
         <filter id="noise">
           <feTurbulence
             type="fractalNoise"
-            baseFrequency="0.8"
+            baseFrequency="0.5"
             numOctaves="4"
-            stitchTiles="stitch"
+            stitchTiles=""
           />
           <feColorMatrix type="saturate" values="0" />
         </filter>

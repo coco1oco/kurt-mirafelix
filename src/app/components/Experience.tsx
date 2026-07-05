@@ -87,13 +87,13 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
         }`}
     >
       {/* Timeline dot with icon */}
-      <div className="absolute left-4 md:left-1/2 w-12 h-12 -ml-[24px] bg-white dark:bg-gray-950 border-2 border-gray-900 dark:border-gray-600 z-10 flex items-center justify-center">
+      <div className="absolute left-4 md:left-1/2 w-12 h-12 -ml-[24px] bg-white dark:bg-black border-2 border-gray-900 dark:border-gray-600 z-10 flex items-center justify-center">
         <exp.icon className="w-5 h-5 text-gray-900 dark:text-gray-300" strokeWidth={1.5} />
       </div>
 
       {/* Content card */}
       <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:pr-16' : 'md:pl-16'}`}>
-        <div className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-600 transition-all duration-500 p-8 space-y-4 overflow-hidden hover:shadow-2xl">
+        <div className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-600 transition-all duration-500 p-8 space-y-4 overflow-hidden hover:shadow-2xl">
           {/* Hover accent line */}
           <div className="absolute top-0 left-0 w-full h-0.5 bg-gray-900 origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
 
@@ -132,7 +132,7 @@ export function Experience() {
   const lineScale = useTransform(scrollYProgress, [0.2, 0.8], [0, 1]);
 
   return (
-    <section id="experience" ref={ref} className="relative py-32 px-6 bg-white dark:bg-gray-950 overflow-hidden transition-colors duration-300">
+    <section id="experience" ref={ref} className="relative py-32 px-6 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       <div className="max-w-4xl mx-auto relative z-10">
         <motion.div
           className="mb-20 space-y-4"

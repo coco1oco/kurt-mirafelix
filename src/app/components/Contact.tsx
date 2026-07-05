@@ -185,7 +185,7 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-32 px-6 bg-gray-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300"
+      className="relative py-32 px-6 bg-gray-50 dark:bg-black overflow-hidden transition-colors duration-300"
     >
       {/* Geometric accent */}
       <motion.div
@@ -272,7 +272,7 @@ export function Contact() {
           >
             <form
               onSubmit={handleSubmit}
-              className="relative bg-white dark:bg-gray-950 border border-gray-200 dark:border-gray-800 p-8 space-y-6 transition-colors duration-300"
+              className="relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 p-8 space-y-6 transition-colors duration-300"
               noValidate
             >
               {/* Hover accent line */}

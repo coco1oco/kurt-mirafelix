@@ -40,7 +40,7 @@ function AnimatedCounter({ end, duration = 2, suffix = '' }: { end: number; dura
 
 export function About() {
   return (
-    <section className="py-32 px-6 bg-white dark:bg-gray-950 relative overflow-hidden transition-colors duration-300" id="about">
+    <section className="py-32 px-6 bg-white dark:bg-black relative overflow-hidden transition-colors duration-300" id="about">
       {/* Geometric accents */}
       <div className="absolute top-20 left-0 w-px h-64 bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
       <div className="absolute bottom-20 right-0 w-px h-64 bg-gradient-to-b from-transparent via-gray-200 to-transparent" />

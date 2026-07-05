@@ -63,7 +63,7 @@ const technologies: Tech[] = [
 
 function Chip({ name, Icon }: Tech) {
   return (
-    <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 whitespace-nowrap">
+    <div className="flex items-center gap-3 px-6 py-3 bg-white dark:bg-black border border-gray-200 dark:border-gray-800 whitespace-nowrap">
       <Icon className="w-5 h-5 text-gray-900 dark:text-gray-300" aria-hidden />
       <span className="text-sm font-medium text-gray-900 dark:text-gray-200">{name}</span>
     </div>
@@ -122,7 +122,7 @@ export function TechStack() {
   const rowTwo = technologies.slice(mid);
 
   return (
-    <section id="skills" ref={ref} className="relative py-32 bg-gray-50 dark:bg-gray-900 overflow-hidden transition-colors duration-300">
+    <section id="skills" ref={ref} className="relative py-32 bg-gray-50 dark:bg-black overflow-hidden transition-colors duration-300">
       {/* Keyframes for the marquee scroll */}
       <style>{`
         @keyframes tech-marquee {

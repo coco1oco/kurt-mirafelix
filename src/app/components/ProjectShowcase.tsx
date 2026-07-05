@@ -83,7 +83,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       transition={{ duration: 0.6, rotateX: { duration: 0.3 }, rotateY: { duration: 0.3 } }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="group relative bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-500 transition-all duration-500 p-6 sm:p-10 hover:shadow-2xl"
+      className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 hover:border-gray-900 dark:hover:border-gray-500 transition-all duration-500 p-6 sm:p-10 hover:shadow-2xl"
       style={{ transformStyle: 'preserve-3d', perspective: 1000 }}
     >
       {/* Hover accent line */}
@@ -185,7 +185,7 @@ export function ProjectShowcase() {
   });
 
   return (
-    <section id="projects" ref={ref} className="relative py-32 px-6 bg-white dark:bg-gray-950 overflow-hidden transition-colors duration-300">
+    <section id="projects" ref={ref} className="relative py-32 px-6 bg-white dark:bg-black overflow-hidden transition-colors duration-300">
       {/* Subtle geometric background */}
       <motion.div
         className="absolute top-40 right-20 w-96 h-96 border border-gray-100 rotate-45"

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 export function StatusIndicator() {
   return (
     <motion.div
-      className="fixed bottom-8 left-8 z-50 hidden md:flex items-center gap-3 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-full shadow-lg"
+      className="fixed bottom-8 left-8 z-50 hidden md:flex items-center gap-3 bg-white/95 dark:bg-black/95 backdrop-blur-sm border border-gray-200 dark:border-gray-700 px-4 py-2 rounded-full shadow-lg"
       initial={{ opacity: 0, x: -20 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 2 }}

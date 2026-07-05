@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Hero } from './components/Hero';
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { TechStack } from './components/TechStack';
@@ -11,7 +10,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { GrainTexture } from './components/GrainTexture';
 import { ScrollProgress } from './components/ScrollProgress';
 import { BackToTop } from './components/BackToTop';
-import { PageLoader } from './components/PageLoader';
 import { SmoothScroll } from './components/SmoothScroll';
 import { MagneticButton } from './components/MagneticButton';
 import { MetaTags } from './components/MetaTags';
@@ -22,16 +20,13 @@ import { useDarkMode } from './hooks/useDarkMode';
 import { SectionErrorBoundary } from './components/SectionErrorBoundary';
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
   const { isDark, toggle } = useDarkMode();
 
   return (
     <>
       <MetaTags />
-      <PageLoader onComplete={() => setIsLoading(false)} />
-      {!isLoading && (
-        <SmoothScroll>
-          <div className="min-h-screen bg-white dark:bg-gray-950 relative transition-colors duration-300">
+      <SmoothScroll>
+          <div className="min-h-screen bg-white dark:bg-black relative transition-colors duration-300">
             <SkipToContent />
             <CustomCursor />
             <GrainTexture />
@@ -49,7 +44,7 @@ export default function App() {
             </main>
 
             {/* Footer */}
-            <footer className="py-20 px-6 text-center border-t border-gray-100 dark:border-gray-800 relative overflow-hidden bg-white dark:bg-gray-950 transition-colors duration-300" role="contentinfo">
+            <footer className="py-20 px-6 text-center border-t border-gray-100 dark:border-gray-800 relative overflow-hidden bg-white dark:bg-black transition-colors duration-300" role="contentinfo">
               {/* Subtle accent line */}
               <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-900 to-transparent" />
 
@@ -114,8 +109,7 @@ export default function App() {
 
             <BackToTop />
           </div>
-        </SmoothScroll>
-      )}
+      </SmoothScroll>
     </>
   );
 }

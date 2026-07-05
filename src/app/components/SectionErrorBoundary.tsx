@@ -6,7 +6,7 @@ function SectionFallback({ error, resetErrorBoundary }: FallbackProps) {
   const errorMessage = error instanceof Error ? error.message : String(error);
 
   return (
-    <div className="py-24 px-6 flex flex-col items-center justify-center text-center bg-gray-50 dark:bg-gray-900 border border-red-100 dark:border-red-900/30 w-full min-h-[40vh]">
+    <div className="py-24 px-6 flex flex-col items-center justify-center text-center bg-gray-50 dark:bg-black border border-red-100 dark:border-red-900/30 w-full min-h-[40vh]">
       <AlertTriangle className="w-12 h-12 text-red-500 mb-4" strokeWidth={1.5} />
       <h3 className="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">
         Failed to load this section

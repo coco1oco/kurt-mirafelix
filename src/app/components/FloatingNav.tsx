@@ -63,7 +63,7 @@ export function FloatingNav({ isDark, onToggleDark }: FloatingNavProps) {
             transition={{ duration: 0.3 }}
             className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden lg:block"
           >
-            <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-2 border-gray-900 dark:border-gray-700 shadow-xl px-6 py-3 transition-colors duration-300">
+            <div className="bg-white/95 dark:bg-black/95 backdrop-blur-sm border-2 border-gray-900 dark:border-gray-700 shadow-xl px-6 py-3 transition-colors duration-300">
               <ul className="flex items-center gap-1">
                 {navItems.map((item) => {
                   const Icon = item.icon;
@@ -196,7 +196,7 @@ export function FloatingNav({ isDark, onToggleDark }: FloatingNavProps) {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.2 }}
-                className="fixed inset-0 z-50 bg-white dark:bg-gray-950 flex flex-col items-center justify-center lg:hidden"
+                className="fixed inset-0 z-50 bg-white dark:bg-black flex flex-col items-center justify-center lg:hidden"
               >
                 <div className="absolute top-8 left-8">
                   <motion.button
