@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, ArrowRight, Subtitles } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const projects = [
@@ -36,6 +36,17 @@ const projects = [
     period: 'May 2026',
     link: null,
     github: null
+  },
+  {
+    id: 4,
+    title: 'Windy',
+    subtitle: 'Weather Forecast Platform',
+    description: 'My first Github project that I made using HTML, CSS and JS. I used OpenWeatherMap API to fetch weather data and display it in a user-friendly interface.',
+    impact: 'Learned how to use APIs and how to display data in a user-friendly interface. Which then I revisit and migrated to React.',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    period: 'Oct 2025',
+    link: null,
+    github: 'https://github.com/coco1oco/weather'
   }
 ];
 

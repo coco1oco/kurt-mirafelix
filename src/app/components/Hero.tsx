@@ -1,10 +1,9 @@
 import { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionTemplate } from 'framer-motion';
-import { ArrowDown, Download } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import portrait from '../../imports/Generated_Image_May_31__2026_-_1_22AM.jpg';
 import { MagneticButton } from './MagneticButton';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
-import { resumeUrl, RESUME_FILENAME } from '../lib/resume';
 import { HeroBackground } from './HeroBackground';
 import { HeroAvatar } from './HeroAvatar';
 
@@ -185,28 +184,15 @@ export function Hero() {
         >
           <MagneticButton
             href="#projects"
-            className="group px-10 py-4 bg-gray-900 text-white rounded-none font-medium hover:bg-gray-800 transition-all hover:scale-105 hover:shadow-2xl backdrop-blur-sm"
+            className="group px-10 py-4 bg-gray-900 text-white rounded-none font-medium hover:bg-gray-800 transition-all hover:shadow-2xl backdrop-blur-sm"
           >
             <span className="flex items-center gap-2">View Projects</span>
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            className="px-10 py-4 bg-white/90 text-gray-900 rounded-none font-medium border border-gray-900 hover:border-gray-900 transition-all hover:scale-105 backdrop-blur-sm"
+            className="px-10 py-4 bg-white/90 text-gray-900 rounded-none font-medium border border-gray-900 hover:border-gray-900 transition-all backdrop-blur-sm"
           >
             Contact
-          </MagneticButton>
-          <MagneticButton
-            href={resumeUrl}
-            download={RESUME_FILENAME}
-            target="_blank"
-            rel="noopener noreferrer"
-            ariaLabel="Download résumé (PDF)"
-            className="px-10 py-4 bg-white/90 text-gray-900 rounded-none font-medium border border-gray-900 hover:border-gray-900 transition-all hover:scale-105 backdrop-blur-sm"
-          >
-            <span className="flex items-center gap-2">
-              <Download className="w-4 h-4" strokeWidth={1.5} />
-              Résumé
-            </span>
           </MagneticButton>
         </motion.div>
 

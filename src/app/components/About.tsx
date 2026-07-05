@@ -84,23 +84,36 @@ export function About() {
           >
             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
-                I'm a Computer Science student at Cavite State University with a passion for crafting elegant,
-                performant web applications. My approach combines technical precision with user-centered design.
+                I'm a Computer Science student and an aspiring Cloud Engineer who's drawn to understanding how
+                things work underneath — not just how they look on the surface.
               </p>
               <p>
-                Specializing in React and TypeScript, I focus on building scalable frontend architectures that
-                deliver exceptional user experiences. From reducing load times by 95% to architecting full-stack
-                solutions, I thrive on solving complex technical challenges.
+                My focus spans full-stack development, cloud infrastructure, and backend systems. I like working
+                across the whole stack because it gives me a grounded view of how applications and the
+                infrastructure they run on actually fit together — and how we keep all of it secure.
+              </p>
+              <p>
+                I found this direction somewhat by accident: I started out just wanting to build things, and
+                along the way discovered that what genuinely pulls me in is the systems side — reliability,
+                scalability, and the engineering underneath good software.
               </p>
             </div>
 
             <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               <p>
-                Currently maintaining a 1.31 GPA as President's Lister while expanding into cloud infrastructure
-                and cybersecurity. Studying for the Microsoft AZ-900 Azure Fundamentals certification and
-                actively growing in security concepts through Cisco's Networking Academy.
+                Right now, I'm building toward my first real milestone in cloud engineering, starting with the
+                fundamentals, while completing a hands-on OJT that's given me exposure across QA, enterprise
+                implementation, and full-stack development.
               </p>
-              <p>I believe great software is invisible — it just works, scales, and stays secure.</p>
+              <p>
+                Beyond code, I'm interested in cybersecurity, exploring how different technical disciplines
+                connect, playing racquet sports, and online games. Always up for a conversation about cloud
+                engineering, software development, or where the industry's heading.
+              </p>
+              <blockquote className="border-l-2 border-gray-300 dark:border-gray-600 pl-4 italic text-base text-gray-500 dark:text-gray-500">
+                "I don't want to be the smartest one in the room. For me, being in a room with people much more
+                capable than I am is far more important — it gives me a place to learn and grow."
+              </blockquote>
             </div>
           </motion.div>
 
