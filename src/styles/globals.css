@@ -1,4 +1,4 @@
-/* Hide scrollbar for horizontal scroller */
+﻿/* Hide scrollbar for horizontal scroller */
 .scrollbar-hide {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -32,7 +32,7 @@ html.lenis body {
 
 /* Base font styling inspired by SF Pro / Inter */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: clip;
@@ -47,4 +47,47 @@ body {
 /* Smooth transitions for all interactive elements */
 * {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* === View Transitions: circular theme reveal ================================
+   document.startViewTransition() snapshots the OLD page, renders the NEW
+   themed page beneath, then we clip the new page in as an expanding circle
+   originating from --vt-x / --vt-y (set by JS on :root at click time).
+   The real fully-rendered new theme is what you see � no color overlay.
+   ============================================================================ */
+
+
+
+/* Suppress the browser default cross-fade */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* Old snapshot: stays flat underneath */
+::view-transition-old(root) {
+  z-index: 1;
+}
+
+/* New themed page: clips in as an expanding circle on top */
+::view-transition-new(root) {
+  z-index: 9999;
+  
+}
+
+/* Respect prefers-reduced-motion � instant switch */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+}
+
+/* During an active view transition, suppress element-level color transitions
+   so they don't compete with the clip-path animation and cause jank */
+:root:has(::view-transition) *,
+:root:has(::view-transition) *::before,
+:root:has(::view-transition) *::after {
+  transition-duration: 0ms !important;
 }

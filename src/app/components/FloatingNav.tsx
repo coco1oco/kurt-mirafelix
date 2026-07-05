@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Code, Briefcase, Layers, GraduationCap, FileDown, Moon, Sun, Mail, Menu, X } from 'lucide-react';
 import { resumeUrl, RESUME_FILENAME } from '../lib/resume';
@@ -15,12 +15,27 @@ const navItems = [
 interface FloatingNavProps {
   isDark: boolean;
   onToggleDark: () => void;
+  onToggleDarkWithRipple?: (origin: { x: number; y: number }) => void;
 }
 
-export function FloatingNav({ isDark, onToggleDark }: FloatingNavProps) {
+export function FloatingNav({ isDark, onToggleDark, onToggleDarkWithRipple }: FloatingNavProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('Home');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const desktopToggleRef = useRef<HTMLButtonElement>(null);
+  const mobileToggleRef = useRef<HTMLButtonElement>(null);
+
+  const handleToggle = (ref: React.RefObject<HTMLButtonElement | null>) => {
+    if (onToggleDarkWithRipple && ref.current) {
+      const rect = ref.current.getBoundingClientRect();
+      onToggleDarkWithRipple({
+        x: Math.round(rect.left + rect.width / 2),
+        y: Math.round(rect.top + rect.height / 2),
+      });
+    } else {
+      onToggleDark();
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -132,7 +147,8 @@ export function FloatingNav({ isDark, onToggleDark }: FloatingNavProps) {
                 <li className="flex items-center">
                   <span className="w-px h-5 bg-gray-200 dark:bg-gray-700 mx-2" aria-hidden />
                   <motion.button
-                    onClick={onToggleDark}
+                    ref={desktopToggleRef}
+                    onClick={() => handleToggle(desktopToggleRef)}
                     aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                     className="flex items-center justify-center p-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 dark:focus:ring-gray-400 rounded"
                     whileHover={{ scale: 1.1 }}
@@ -200,7 +216,8 @@ export function FloatingNav({ isDark, onToggleDark }: FloatingNavProps) {
               >
                 <div className="absolute top-8 left-8">
                   <motion.button
-                    onClick={onToggleDark}
+                    ref={mobileToggleRef}
+                    onClick={() => handleToggle(mobileToggleRef)}
                     aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
                     className="p-3 border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-gray-100 rounded-full focus:outline-none"
                     whileTap={{ scale: 0.9 }}

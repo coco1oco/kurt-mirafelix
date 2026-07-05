@@ -10,3 +10,5 @@ plans/
 .env.*.local
 .env.production
 .env.development
+
+SKILL.md

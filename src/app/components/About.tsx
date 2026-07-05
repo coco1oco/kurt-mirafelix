@@ -56,15 +56,15 @@ export function About() {
           {/* Header */}
           <div className="space-y-4">
             <motion.div
-              className="inline-block px-4 py-1 border border-gray-200 dark:border-gray-700 rounded-full text-xs tracking-widest uppercase text-gray-500 dark:text-gray-400"
+              className="text-sm font-pixel text-gray-400 dark:text-gray-500 lowercase"
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              About
+              01 — about
             </motion.div>
             <motion.h2
-              className="text-5xl md:text-6xl font-bold text-gray-900 dark:text-gray-100 max-w-3xl"
+              className="text-5xl md:text-6xl font-pixel font-normal text-gray-900 dark:text-gray-100 max-w-3xl lowercase"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

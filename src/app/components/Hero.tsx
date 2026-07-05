@@ -91,8 +91,8 @@ export function Hero() {
               </span>
             </motion.div>
 
-            {/* Cinematic Headline */}
-            <div className="mb-8 font-mono font-bold text-[5rem] leading-[0.9] sm:text-[6rem] lg:text-[8rem] xl:text-[9rem] tracking-tighter text-gray-950 dark:text-gray-50">
+            {/* Cinematic Headline — Geist Pixel (display font per SKILL.md) */}
+            <div className="mb-8 font-pixel font-normal text-[4.5rem] leading-[0.9] sm:text-[5.5rem] lg:text-[7.5rem] xl:text-[8.5rem] tracking-tight text-gray-950 dark:text-gray-50">
               <div className="overflow-hidden">
                 <motion.div variants={itemVariants}>Design.</motion.div>
               </div>

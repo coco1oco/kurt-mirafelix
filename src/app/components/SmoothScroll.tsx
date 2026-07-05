@@ -38,6 +38,8 @@ export function SmoothScroll({ children }: { children: ReactNode }) {
     });
 
     lenisRef.current = lenis;
+    // @ts-ignore - expose globally for modals to lock scroll
+    window.lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);

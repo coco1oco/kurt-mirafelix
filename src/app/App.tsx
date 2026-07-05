@@ -18,20 +18,21 @@ import { SkipToContent } from './components/SkipToContent';
 import { resumeUrl, RESUME_FILENAME } from './lib/resume';
 import { useDarkMode } from './hooks/useDarkMode';
 import { SectionErrorBoundary } from './components/SectionErrorBoundary';
+import { FooterEasterEgg } from './components/FooterEasterEgg';
 
 export default function App() {
-  const { isDark, toggle } = useDarkMode();
+  const { isDark, toggle, toggleWithRipple } = useDarkMode();
 
   return (
     <>
       <MetaTags />
       <SmoothScroll>
-          <div className="min-h-screen bg-white dark:bg-black relative transition-colors duration-300">
+          <div className="min-h-screen bg-white dark:bg-black relative transition-colors duration-500">
             <SkipToContent />
             <CustomCursor />
             <GrainTexture />
             <ScrollProgress />
-            <FloatingNav isDark={isDark} onToggleDark={toggle} />
+            <FloatingNav isDark={isDark} onToggleDark={toggle} onToggleDarkWithRipple={toggleWithRipple} />
             <StatusIndicator />
             <main id="main-content">
               <SectionErrorBoundary><Hero /></SectionErrorBoundary>
@@ -104,6 +105,8 @@ export default function App() {
                   <p className="text-gray-400 dark:text-gray-500 text-sm">© 2026 Kurt Michael Mirafelix. Cavite, Philippines.</p>
                   <p className="text-gray-300 dark:text-gray-600 text-xs">Built with React, TypeScript, Tailwind CSS &amp; Framer Motion</p>
                 </div>
+                
+                <FooterEasterEgg />
               </div>
             </footer>
 

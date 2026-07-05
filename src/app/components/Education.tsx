@@ -73,13 +73,12 @@ export function Education() {
           transition={{ duration: 0.6 }}
         >
           <div className="flex items-center gap-4">
-            <div className="w-12 h-px bg-gray-900" />
-            <span className="text-sm font-medium tracking-widest text-gray-400 uppercase">
-              Background
-            </span>
+            <h2 className="text-sm font-pixel text-gray-400 dark:text-gray-500 lowercase">
+              05 — education
+            </h2>
           </div>
-          <h2 className="text-5xl sm:text-6xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">
-            Education
+          <h2 className="text-5xl sm:text-6xl font-pixel font-normal text-gray-900 dark:text-gray-100 tracking-tight lowercase mt-4">
+            background
           </h2>
         </motion.div>
 
