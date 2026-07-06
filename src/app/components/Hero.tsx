@@ -153,7 +153,7 @@ export function Hero() {
             <div className="absolute -bottom-4 -right-4 w-8 h-8 border-b border-r border-gray-900 dark:border-gray-100" />
 
             {/* Portrait Container */}
-            <div className="relative w-full h-full overflow-hidden bg-gray-100 dark:bg-gray-900 group">
+            <div className="relative w-full h-full overflow-hidden bg-gray-100 dark:bg-black group">
               <img
                 src={avatar}
                 alt="Kurt Michael Mirafelix"
