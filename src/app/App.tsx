@@ -11,7 +11,6 @@ import { GrainTexture } from './components/GrainTexture';
 import { ScrollProgress } from './components/ScrollProgress';
 import { BackToTop } from './components/BackToTop';
 import { SmoothScroll } from './components/SmoothScroll';
-import { MagneticButton } from './components/MagneticButton';
 import { MetaTags } from './components/MetaTags';
 import { StatusIndicator } from './components/StatusIndicator';
 import { SkipToContent } from './components/SkipToContent';
@@ -44,71 +43,62 @@ export default function App() {
               <SectionErrorBoundary><Contact /></SectionErrorBoundary>
             </main>
 
-            {/* Footer */}
-            <footer className="py-20 px-6 text-center border-t border-gray-100 dark:border-gray-800 relative overflow-hidden bg-white dark:bg-black transition-colors duration-300" role="contentinfo">
-              {/* Subtle accent line */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-900 to-transparent" />
+            {/* ── Footer ───────────────────────────────────────────────── */}
+            <footer
+              className="px-6 pt-14 pb-10 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-black transition-colors duration-300 relative"
+              role="contentinfo"
+            >
+              <div className="max-w-5xl mx-auto">
 
-              <div className="max-w-6xl mx-auto space-y-8 relative">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
-                  <div className="text-left">
-                    <h3 className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Let's Build Something</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Open to opportunities and collaboration</p>
+                {/* ── Row 1: name + links ─────────────────────────────── */}
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-8 sm:gap-4">
+                  {/* Name + terminal prompt */}
+                  <div className="space-y-2">
+                    <span className="font-pixel font-normal text-xl text-gray-900 dark:text-gray-100 lowercase tracking-tight select-none block">
+                      kurt michael mirafelix
+                    </span>
+                    <FooterEasterEgg />
                   </div>
-                  <MagneticButton
-                    href="#contact"
-                    className="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-colors dark:bg-gray-100 dark:text-gray-900 dark:hover:bg-gray-300"
-                  >
-                    Get in Touch
-                  </MagneticButton>
+
+                  {/* Links */}
+                  <nav aria-label="Footer navigation" className="flex flex-row sm:flex-col gap-x-5 gap-y-1 sm:text-right">
+                    {[
+                      { label: 'GitHub', href: 'https://github.com/coco1oco', external: true, aria: 'GitHub profile' },
+                      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/kurt-michael-mirafelix', external: true, aria: 'LinkedIn profile' },
+                      { label: 'Email', href: 'mailto:kmirafelix@gmail.com', external: false, aria: 'Send email' },
+                      { label: 'Résumé', href: resumeUrl, external: true, download: RESUME_FILENAME, aria: 'Download résumé (PDF)' },
+                    ].map(({ label, href, external, download, aria }) => (
+                      <a
+                        key={label}
+                        href={href}
+                        {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                        {...(download ? { download } : {})}
+                        aria-label={aria}
+                        className="font-mono text-[11px] uppercase tracking-widest text-gray-400 dark:text-gray-600 hover:text-gray-900 dark:hover:text-gray-100 transition-colors duration-200 focus:outline-none focus-visible:underline"
+                      >
+                        {label}{external ? '\u00a0↗' : ''}
+                      </a>
+                    ))}
+                  </nav>
                 </div>
 
-                <div className="flex justify-center gap-8 text-sm text-gray-500">
-                  <a
-                    href="https://github.com/coco1oco"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded px-2 py-1"
-                    aria-label="GitHub Profile"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/kurt-michael-mirafelix"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded px-2 py-1"
-                    aria-label="LinkedIn Profile"
-                  >
-                    LinkedIn
-                  </a>
-                  <a
-                    href="mailto:kmirafelix@gmail.com"
-                    className="hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded px-2 py-1"
-                    aria-label="Send Email"
-                  >
-                    Email
-                  </a>
-                  <a
-                    href={resumeUrl}
-                    download={RESUME_FILENAME}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 rounded px-2 py-1"
-                    aria-label="Download résumé (PDF)"
-                  >
-                    Résumé
-                  </a>
+                {/* ── Hairline divider ────────────────────────────────── */}
+                <div className="border-t border-gray-200 dark:border-gray-800 my-8" />
+
+                {/* ── Row 2: copyright + tech stack ───────────────────── */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-600">
+                    © 2026 · Cavite, Philippines
+                  </p>
+                  <p className="font-mono text-[10px] uppercase tracking-widest text-gray-300 dark:text-gray-700">
+                    React · TypeScript · Tailwind · Framer Motion
+                  </p>
                 </div>
 
-                <div className="space-y-2">
-                  <p className="text-gray-400 dark:text-gray-500 text-sm">© 2026 Kurt Michael Mirafelix. Cavite, Philippines.</p>
-                  <p className="text-gray-300 dark:text-gray-600 text-xs">Built with React, TypeScript, Tailwind CSS &amp; Framer Motion</p>
-                </div>
-                
-                <FooterEasterEgg />
+
               </div>
             </footer>
+
 
             <BackToTop />
           </div>
