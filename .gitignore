@@ -12,3 +12,4 @@ plans/
 .env.development
 
 SKILL.md
+.claude/
