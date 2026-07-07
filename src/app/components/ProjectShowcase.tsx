@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
-import { ExternalLink, Github, ArrowRight, ArrowUpRight, X } from 'lucide-react';
+import { ArrowUpRight, X } from 'lucide-react';
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion';
 
 const projects = [
@@ -127,13 +127,13 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
         className="absolute inset-0 bg-black/60 backdrop-blur-sm cursor-pointer"
       />
 
-      {/* Modal Content */}
+      {/* Coming Soon Modal */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95, y: 20 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.95, y: 20 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-2xl z-10"
+        className="relative w-full max-w-md bg-white dark:bg-black border border-gray-200 dark:border-gray-800 shadow-2xl z-10"
       >
         {/* Close Button */}
         <button
@@ -143,88 +143,51 @@ function ProjectModal({ project, onClose }: { project: typeof projects[0]; onClo
           <X className="w-5 h-5" />
         </button>
 
-        <div className="p-8 sm:p-12 space-y-12">
-          {/* Header */}
-          <div className="space-y-4 pr-12">
-            <h2 className="text-4xl sm:text-5xl font-pixel font-normal text-gray-900 dark:text-white tracking-tight">
-              {project.title}
-            </h2>
-            <p className="text-lg text-gray-500 dark:text-gray-400 font-medium">
-              {project.subtitle} • {project.period}
+        <div className="p-8 sm:p-12 flex flex-col items-center text-center space-y-6">
+          {/* Animated icon */}
+          <motion.div
+            initial={{ rotate: 0 }}
+            animate={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="w-16 h-16 border-2 border-gray-200 dark:border-gray-800 flex items-center justify-center"
+          >
+            <span className="text-2xl" role="img" aria-label="construction">🚧</span>
+          </motion.div>
+
+          {/* Project title */}
+          <h2 className="text-2xl sm:text-3xl font-pixel font-normal text-gray-900 dark:text-white tracking-tight">
+            {project.title}
+          </h2>
+
+          {/* Coming Soon message */}
+          <div className="space-y-2">
+            <p className="text-sm font-mono font-bold tracking-widest uppercase text-gray-400 dark:text-gray-500">
+              Coming Soon
+            </p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
+              Detailed case study for this project is not available yet. Check back later!
             </p>
           </div>
 
-          {/* Placeholder for Screenshots */}
-          <div className="w-full aspect-[16/9] bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex items-center justify-center">
-            <span className="text-gray-400 font-mono text-sm tracking-widest uppercase">Screenshot Area</span>
+          {/* Pulsing indicator */}
+          <div className="flex items-center gap-2 mt-2">
+            <motion.div
+              className="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full"
+              animate={{ opacity: [0.3, 1, 0.3] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <span className="text-xs font-mono text-gray-400 dark:text-gray-500">
+              In progress
+            </span>
           </div>
 
-          {/* Content Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="md:col-span-2 space-y-8">
-              <div className="space-y-4">
-                <h4 className="font-mono text-sm font-bold tracking-widest uppercase text-gray-900 dark:text-white">Overview</h4>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed text-lg">
-                  {project.description}
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-mono text-sm font-bold tracking-widest uppercase text-gray-900 dark:text-white">Impact</h4>
-                <div className="inline-flex items-center gap-3 px-5 py-3 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
-                  <div className="w-2 h-2 bg-gray-900 dark:bg-white" />
-                  <span className="font-medium text-gray-900 dark:text-gray-200">{project.impact}</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-8">
-              <div className="space-y-4">
-                <h4 className="font-mono text-sm font-bold tracking-widest uppercase text-gray-900 dark:text-white">Technologies</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-mono text-gray-600 dark:text-gray-400 px-3 py-1.5 border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-mono text-sm font-bold tracking-widest uppercase text-gray-900 dark:text-white">Links</h4>
-                <div className="flex flex-col gap-3">
-                  {project.link && (
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm font-mono font-bold text-white bg-gray-900 dark:bg-white dark:text-gray-900 px-4 py-3 hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
-                    >
-                      View Live Site
-                      <ArrowUpRight className="w-4 h-4" />
-                    </a>
-                  )}
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 text-sm font-mono font-bold text-gray-900 dark:text-white border border-gray-900 dark:border-white px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
-                    >
-                      <Github className="w-4 h-4" />
-                      View Source
-                    </a>
-                  )}
-                  {!project.link && !project.github && (
-                    <span className="text-sm text-gray-500 italic">No public links available.</span>
-                  )}
-                </div>
-              </div>
-            </div>
-          </div>
+          {/* Close button */}
+          <button
+            onClick={onClose}
+            className="mt-4 px-6 py-2.5 text-sm font-mono font-bold border border-gray-200 dark:border-gray-800 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors"
+          >
+            Got it
+          </button>
         </div>
       </motion.div>
     </div>
