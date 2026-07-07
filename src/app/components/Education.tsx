@@ -25,6 +25,18 @@ const certifications = [
     inProgress: false
   },
   {
+    title: 'Responsible AI: Applying AI Principles with Google Cloud',
+    issuer: 'Google',
+    date: 'June 2026',
+    inProgress: false
+  },
+  {
+    title: ' Understanding Data Science',
+    issuer: 'DataCamp',
+    date: 'July 2025',
+    inProgress: false
+  },
+  {
     title: 'Azure Fundamentals (AZ-900)',
     issuer: 'Microsoft Azure',
     date: 'In Progress',

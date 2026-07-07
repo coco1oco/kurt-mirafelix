@@ -189,7 +189,7 @@ export function FooterTerminal() {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { delayChildren: 0.8, staggerChildren: 0.75 }
+      transition: { delayChildren: 1, staggerChildren: 1 }
     }
   };
 
