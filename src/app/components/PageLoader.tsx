@@ -1,68 +1,169 @@
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import gsap from 'gsap';
 
 export function PageLoader({ onComplete }: { onComplete: () => void }) {
+  const [isExiting, setIsExiting] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [isComplete, setIsComplete] = useState(false);
+  const progressRef = useRef(0);
 
+  const overlayRef    = useRef<HTMLDivElement>(null);
+  const nameRef       = useRef<HTMLDivElement>(null);
+  const labelRef      = useRef<HTMLDivElement>(null);
+  const counterRef    = useRef<HTMLDivElement>(null);
+  const barFillRef    = useRef<HTMLDivElement>(null);
+
+  // ── entrance ──────────────────────────────────────────────────────────────
   useEffect(() => {
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(() => {
-            setIsComplete(true);
-            setTimeout(onComplete, 600);
-          }, 300);
-          return 100;
-        }
-        // Ease out progress
-        const increment = (100 - prev) * 0.1;
-        return Math.min(prev + Math.max(increment, 2), 100);
-      });
-    }, 30);
+    if (!nameRef.current || !labelRef.current || !counterRef.current) return;
+    const els = [nameRef.current, labelRef.current, counterRef.current];
+    gsap.set(els, { opacity: 0, y: 14 });
+    gsap.to(els, {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      stagger: 0.07,
+      ease: 'power3.out',
+      delay: 0.1,
+    });
+  }, []);
+
+  // ── progress ──────────────────────────────────────────────────────────────
+  useEffect(() => {
+    let interval: ReturnType<typeof setInterval>;
+
+    interval = setInterval(() => {
+      progressRef.current = Math.min(
+        progressRef.current + (100 - progressRef.current) * 0.09 + 0.8,
+        100
+      );
+      const p = Math.floor(progressRef.current);
+      setProgress(p);
+
+      // Drive the bar fill directly via GSAP for silky smoothness
+      if (barFillRef.current) {
+        gsap.to(barFillRef.current, {
+          width: `${progressRef.current}%`,
+          duration: 0.12,
+          ease: 'none',
+          overwrite: 'auto',
+        });
+      }
+
+      if (progressRef.current >= 100) {
+        clearInterval(interval);
+        // Short pause so user sees 100%, then exit
+        setTimeout(triggerExit, 320);
+      }
+    }, 22);
 
     return () => clearInterval(interval);
-  }, [onComplete]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // ── exit ──────────────────────────────────────────────────────────────────
+  function triggerExit() {
+    if (!overlayRef.current || !nameRef.current || !labelRef.current || !counterRef.current) {
+      setIsExiting(true);
+      onComplete();
+      return;
+    }
+
+    const tl = gsap.timeline({
+      onComplete: () => { setIsExiting(true); onComplete(); },
+    });
+
+    // 1 — content fades up slightly ahead of the panel
+    tl.to([nameRef.current, counterRef.current, labelRef.current], {
+      opacity: 0,
+      y: -12,
+      duration: 0.38,
+      stagger: 0.04,
+      ease: 'power2.in',
+    })
+    // 2 — panel slides up revealing hero beneath
+    .to(overlayRef.current, {
+      yPercent: -100,
+      duration: 0.88,
+      ease: 'power3.inOut',
+    }, '-=0.12');
+  }
+
+  if (isExiting) return null;
 
   return (
-    <AnimatePresence>
-      {!isComplete && (
-        <motion.div
-          className="fixed inset-0 z-[10000] bg-white dark:bg-gray-950 flex flex-col items-center justify-center"
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: 'easeInOut' }}
-        >
-          <div className="space-y-8">
-            <motion.div
-              className="text-6xl md:text-8xl font-bold text-gray-900 dark:text-gray-100"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              {Math.floor(progress)}%
-            </motion.div>
+    <div
+      ref={overlayRef}
+      className="fixed inset-0 z-[10000] bg-white dark:bg-[#0c0c0f] overflow-hidden"
+    >
+      {/* ── Halftone motif — diagonal radial fade from bottom-right ─────── */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: [
+            'radial-gradient(circle, rgba(10,10,10,0.9) 1px, transparent 1px)',
+          ].join(','),
+          backgroundSize: '9px 9px',
+          opacity: 0.13,
+          maskImage: 'radial-gradient(ellipse 60% 60% at 80% 80%, black 0%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 80% 80%, black 0%, transparent 100%)',
+        }}
+      />
+      {/* dark-mode variant — inlined so it responds to .dark class */}
+      <div
+        className="absolute inset-0 pointer-events-none hidden dark:block"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(244,244,245,0.9) 1px, transparent 1px)',
+          backgroundSize: '9px 9px',
+          opacity: 0.38,
+          maskImage: 'radial-gradient(ellipse 60% 60% at 80% 80%, black 0%, transparent 100%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 60% 60% at 80% 80%, black 0%, transparent 100%)',
+        }}
+      />
 
-            <div className="w-64 h-[1px] bg-gray-200 dark:bg-gray-800 relative overflow-hidden">
-              <motion.div
-                className="absolute inset-y-0 left-0 bg-gray-900"
-                initial={{ width: 0 }}
-                animate={{ width: `${progress}%` }}
-                transition={{ duration: 0.1 }}
-              />
-            </div>
+      {/* ── Name — anchored bottom-left, editorial ───────────────────────── */}
+      <div
+        ref={nameRef}
+        className="absolute bottom-16 left-8 sm:left-12 select-none"
+      >
+        <div className="font-pixel text-5xl sm:text-6xl md:text-7xl text-gray-900 dark:text-gray-100 leading-none lowercase tracking-tight">
+          kurt
+        </div>
+        <div className="font-pixel text-5xl sm:text-6xl md:text-7xl text-gray-900 dark:text-gray-100 leading-none lowercase tracking-tight">
+          mirafelix
+        </div>
+      </div>
 
-            <motion.p
-              className="text-sm tracking-[0.3em] uppercase text-gray-400 dark:text-gray-500 text-center"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.3 }}
-            >
-              Loading Portfolio
-            </motion.p>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+      {/* ── Micro-label — bottom-left below name ─────────────────────────── */}
+      <div
+        ref={labelRef}
+        className="absolute bottom-10 left-8 sm:left-12"
+      >
+        <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-gray-400 dark:text-[#8a8a92]">
+          portfolio · {new Date().getFullYear()}
+        </span>
+      </div>
+
+      {/* ── Progress counter — bottom-right ──────────────────────────────── */}
+      <div
+        ref={counterRef}
+        className="absolute bottom-[3.65rem] right-8 sm:right-12"
+      >
+        <span className="font-mono text-[10px] uppercase tracking-[0.12em] text-gray-900 dark:text-gray-100 tabular-nums">
+          {progress.toString().padStart(3, '0')}
+        </span>
+        <span className="font-mono text-[10px] tracking-[0.06em] text-gray-400 dark:text-[#8a8a92]">
+          %
+        </span>
+      </div>
+
+      {/* ── Progress bar — hairline at bottom ────────────────────────────── */}
+      <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200 dark:bg-[#2a2a30]">
+        <div
+          ref={barFillRef}
+          className="h-full bg-gray-900 dark:bg-gray-100"
+          style={{ width: '0%' }}
+        />
+      </div>
+    </div>
   );
 }

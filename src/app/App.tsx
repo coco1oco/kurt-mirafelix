@@ -1,4 +1,5 @@
 import { Hero } from './components/Hero';
+
 import { ProjectShowcase } from './components/ProjectShowcase';
 import { TechStack } from './components/TechStack';
 import { Education } from './components/Education';
@@ -18,15 +19,19 @@ import { resumeUrl, RESUME_FILENAME } from './lib/resume';
 import { useDarkMode } from './hooks/useDarkMode';
 import { SectionErrorBoundary } from './components/SectionErrorBoundary';
 import { FooterEasterEgg } from './components/FooterEasterEgg';
+import { PageLoader } from './components/PageLoader';
 
 export default function App() {
   const { isDark, toggle, toggleWithRipple } = useDarkMode();
 
   return (
     <>
+      <PageLoader onComplete={() => {}} />
       <MetaTags />
       <SmoothScroll>
-          <div className="min-h-screen bg-white dark:bg-black relative transition-colors duration-500">
+          <div
+            className="min-h-screen bg-white dark:bg-black relative transition-colors duration-500"
+          >
             <SkipToContent />
             <CustomCursor />
             <GrainTexture />
